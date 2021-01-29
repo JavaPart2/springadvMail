@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+}
+
+input, button {
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+}
+
+.fout {
+    color: red;
+}

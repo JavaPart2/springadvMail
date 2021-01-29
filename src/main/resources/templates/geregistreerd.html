@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Geregistreerd</title>
+    <link rel="stylesheet" th:href="@{/css/mail.css}">
+</head>
+<body>
+    <h1>Geregistreerd</h1>
+    <p>Uw lidnummer is:<span th:text="${id}"></span></p>
+    <div th:if="${param.mailFout==null}">
+        We stuurden je een mail.
+    </div>
+    <div th:if="${param.mailFout!=null}" class="fout">
+        We konden je geen mail sturen wegens technische problemen.
+    </div>
+</body>
+</html>

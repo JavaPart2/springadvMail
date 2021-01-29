@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registratie</title>
+    <link rel="stylesheet" th:href="@{/css/mail.css}">
+</head>
+<body>
+    <h1>Registratie</h1>
+    <form th:object="${lid}" method="post" th:action="@{/leden}">
+        <span th:errors="*{voornaam}" class="fout"></span>
+        <input th:field="*{voornaam}" autofocus required placeholder="voornaam">
+
+        <span th:errors="*{familienaam}" class="fout"></span>
+        <input th:field="*{familienaam}" required placeholder="familienaam">
+
+        <span th:errors="*{emailAdres}" class="fout"></span>
+        <input th:field="*{emailAdres}" type="email" required placeholder="email adres">
+        <button>Registreren</button>
+    </form>
+
+</body>
+</html>

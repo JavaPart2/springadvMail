@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lid Info</title>
+    <link rel="stylesheet" th:href="@{/css/mail.css}">
+</head>
+<body>
+    <dl th:if="${lid != null}" th:object="${lid}">
+        <dt>Nummer:</dt>
+        <dd th:text="*{id}"></dd>
+        <dt>Voornaam:</dt>
+        <dd th:text="*{voornaam}"></dd>
+        <dt>Familienaam:</dt>
+        <dd th:text="*{familienaam}"></dd>
+        <dt>Email adres:</dt>
+        <dd th:text="*{emailAdres}"></dd>
+        <dt>Lid sinds:</dt>
+        <dd th:text="*{{lidSinds}}"></dd>
+    </dl>
+    <div th:if="${lid==null}" class="fout">Niet gevonden</div>
+</body>
+</html>
