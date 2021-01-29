@@ -3,6 +3,7 @@ package be.hvwebsites.mail.services;
 import be.hvwebsites.mail.domain.Lid;
 import be.hvwebsites.mail.mailing.LidMailing;
 import be.hvwebsites.mail.repositories.LidRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,5 +30,13 @@ public class DefaultLidService implements LidService{
     @Override
     public Optional<Lid> findById(long id) {
         return repository.findById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    @Scheduled(fixedRate = 60_000)
+    public void stuurMailMetAantalLeden() {
+        mailing.stuurMailMetAantalLeden(repository.count());
+
     }
 }

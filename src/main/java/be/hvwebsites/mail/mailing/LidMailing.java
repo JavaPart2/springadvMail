@@ -4,4 +4,5 @@ import be.hvwebsites.mail.domain.Lid;
 
 public interface LidMailing {
     void stuurMailNaRegistratie(Lid lid);
+    void stuurMailMetAantalLeden(long aantalLeden);
 }
